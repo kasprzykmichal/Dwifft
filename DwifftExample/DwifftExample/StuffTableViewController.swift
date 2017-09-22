@@ -30,7 +30,7 @@ class StuffTableViewController: UITableViewController {
         for i in 0..<possibleStuff.count - 1 {
             let j = Int(arc4random_uniform(UInt32(possibleStuff.count - i))) + i
             if i != j {
-                swap(&possibleStuff[i], &possibleStuff[j])
+                possibleStuff.swapAt(i, j)
             }
         }
         let subsetCount: Int = Int(arc4random_uniform(3)) + 5
