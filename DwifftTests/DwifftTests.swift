@@ -63,22 +63,22 @@ class DwifftTests: XCTestCase {
             init(insertionExpectations: [Int: XCTestExpectation], deletionExpectations: [Int: XCTestExpectation]) {
                 self.insertionExpectations = insertionExpectations
                 self.deletionExpectations = deletionExpectations
-                super.init(frame: CGRect.zero, style: UITableViewStyle.plain)
+                super.init(frame: CGRect.zero, style: UITableView.Style.plain)
             }
             
             required init?(coder aDecoder: NSCoder) {
                 fatalError("not implemented")
             }
             
-            fileprivate override func insertRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
-                XCTAssertEqual(animation, UITableViewRowAnimation.left, "incorrect insertion animation")
+            fileprivate override func insertRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
+                XCTAssertEqual(animation, UITableView.RowAnimation.left, "incorrect insertion animation")
                 for indexPath in indexPaths {
                     self.insertionExpectations[indexPath.row]!.fulfill()
                 }
             }
             
-            fileprivate override func deleteRows(at indexPaths: [IndexPath], with animation: UITableViewRowAnimation) {
-                XCTAssertEqual(animation, UITableViewRowAnimation.right, "incorrect insertion animation")
+            fileprivate override func deleteRows(at indexPaths: [IndexPath], with animation: UITableView.RowAnimation) {
+                XCTAssertEqual(animation, UITableView.RowAnimation.right, "incorrect insertion animation")
                 for indexPath in indexPaths {
                     self.deletionExpectations[indexPath.row]!.fulfill()
                 }

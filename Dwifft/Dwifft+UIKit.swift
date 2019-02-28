@@ -23,7 +23,7 @@ open class TableViewDiffCalculator<T: Equatable> {
     open var sectionIndex: Int = 0
     
     /// You can change insertion/deletion animations like this! Fade works well. So does Top/Bottom. Left/Right/Middle are a little weird, but hey, do your thing.
-    open var insertionAnimation = UITableViewRowAnimation.automatic, deletionAnimation = UITableViewRowAnimation.automatic
+    open var insertionAnimation = UITableView.RowAnimation.automatic, deletionAnimation = UITableView.RowAnimation.automatic
     
     /// Change this value to trigger animations on the table view.
     open var rows : [T] {
